@@ -5,11 +5,75 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ya TocApp</title>
+    <title>YaTocApp</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+    <div class="wrapper">
 
+        <header>
+            <h1>YaTocA<span>pp</span></h1>
+            <aside>
+                <div class="nuevo">
+                    <i class="fas fa-plus-circle"></i>
+                    <span>Añadir una tarea</span>
+                </div>
+                <div class="filtros">
+                    <i class="fas fa-search"></i>
+                    <span>Buscar una tarea</span>
+                </div>
+            </aside>
+            <div class="filtroextendido">
+                <hr noshade="noshade">
+                <select id="filtroprioridad">
+                    <option value="">Filtrar por prioridad</option>
+                </select>
+                <input type="text" placeholder="Título de la tarea a buscar" id="filtrotexto">
+            </div>
+        </header>
+
+        <hr noshade="noshade">
+
+        <main>
+
+            <section class="pendientes">
+                <article>
+                    <div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro officiis alias temporibus ex
+                            dolores laudantium amet deleniti tempore dignissimos quis vitae, nulla eum recusandae
+                            doloribus laboriosam rerum? Ipsum, quo quis.</p>
+                    </div>
+                </article>
+                <article>
+                    <div>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus delectus sunt minus, qui
+                            labore soluta. Libero voluptatibus est veritatis delectus aut voluptates animi, esse tempora
+                            quos, culpa repellat! Repellat, rerum.</p>
+                    </div>
+                </article>
+            </section>
+
+            <section class="completadas">
+                <article>
+                    <div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, iure optio obcaecati non
+                            modi in vel accusamus asperiores ex, dolorum nisi aspernatur, qui ipsa quisquam perspiciatis
+                            tenetur ullam totam voluptas.</p>
+                    </div>
+                </article>
+                <article>
+                    <div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos quam optio, asperiores dolorum
+                            molestias neque cumque totam ab aspernatur, delectus tempore ipsa minima quia repudiandae
+                            provident, eveniet facilis vitae quibusdam.</p>
+                    </div>
+                </article>
+            </section>
+
+        </main>
+
+    </div>
 </body>
 
 </html>

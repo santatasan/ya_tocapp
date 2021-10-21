@@ -1,0 +1,147 @@
+@import url(reset.css);
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Gluten:wght@400;700&family=MuseoModerno&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css');
+
+*{
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+:root {
+    --fuenteh1: 'Gluten', cursive;
+    --fuentemenus: 'MuseoModerno', cursive;
+    --fuentetareas: 'Dancing Script', cursive;
+    --colorprincipal: #0c16a3;
+    --segundocolorprincipal: #090f63;
+    --colorsecundario: rgb(206, 200, 200);
+}
+
+body {
+    font-family: var(--fuentemenus);
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    width: 90vw;
+    max-height: 90vh;
+    padding: 15px;
+    border-radius: 30px 10px;
+    box-shadow: 5px 5px 10px black;
+}
+
+/* Inicio de header */
+
+.wrapper header {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+hr {
+    width: 100%;
+    color: var(--colorsecundario);
+    margin: 20px 0px;
+}
+
+.wrapper header h1 {
+    width: 100%;
+    font-family: var(--fuenteh1);
+    font-size: 10vw;
+    font-weight: 700;
+    color: var(--colorprincipal);
+    margin: 20px auto;
+}
+
+.wrapper header h1 span {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--segundocolorprincipal);
+}
+
+.wrapper header aside {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.wrapper .nuevo {
+    width: calc(50% - 10px);
+    margin-right: 10px;
+    color: var(--colorprincipal);
+    background-color: white;
+    font-size: 3vw;
+    cursor: pointer;
+    padding: 5px;
+    transition: 0.75s;
+}
+
+.wrapper .filtros {
+    width: calc(50% - 10px);
+    margin-left: 10px;
+    color: var(--colorprincipal);
+    background-color: white;
+    font-size: 3vw;
+    cursor: pointer;
+    padding: 5px;
+    transition: 0.75s;
+}
+
+.wrapper .nuevo:hover {
+    color: white;
+    background-color: var(--colorprincipal);
+    border-radius: 30px 10px;
+}
+
+.wrapper .filtros:hover {
+    color: white;
+    background-color: var(--colorprincipal);
+    border-radius: 10px 30px;
+}
+
+.wrapper .filtroextendido {
+    width: 100%;
+    transition: 0.75s;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around ;
+}
+
+.wrapper .filtroextendido #filtroprioridad {
+    width: 40%;
+    font-family: var(--fuentemenus);
+    color: white;
+    background-color: var(--colorprincipal);
+    border-radius: 5px;
+    border: 5px solid var(--colorprincipal);
+    font-size: 1.8vw;
+}
+
+.wrapper .filtroextendido #filtrotexto {
+    width: 40%;
+    font-family: var(--fuentemenus);
+    font-size: 1.8vw;
+    background-color: var(--colorprincipal);
+    border-radius: 5px;
+    border: 2px solid var(--colorprincipal);
+    color: white;
+    transition: 0.75s;
+    padding: 5px;
+}
+
+.wrapper .filtroextendido #filtrotexto:focus {
+    background-color: white;
+    border: 2px solid var(--colorprincipal);
+    padding: 5px;
+    color: var(--colorprincipal);
+    outline: none;
+}
+
+/* Final de header */
