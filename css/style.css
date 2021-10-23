@@ -183,6 +183,7 @@ main article div {
 
 main article p {
     margin-right: 10px;
+    cursor: default;
 }
 
 main .completadas article p {
@@ -192,7 +193,27 @@ main .completadas article p {
 
 main article i {
     margin-left: auto;
+    font-size: 1.2em;
     color: var(--colorprincipal);
+    cursor: pointer;
+    transition: 1s;
+}
+
+main article i:hover {
+    transform: rotate(360deg);
+    color: red;
+}
+
+.diaria {
+    background-color: green;
+}
+
+.mensual {
+    background-color: yellow;
+}
+
+.urgente {
+    background-color: red;
 }
 
 /* Final de main */
