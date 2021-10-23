@@ -110,9 +110,9 @@ hr {
 .wrapper .filtroextendido {
     width: 100%;
     transition: 0.75s;
-    display: flex;
     flex-wrap: wrap;
     justify-content: space-around ;
+    transition: 0.75s;
 }
 
 .wrapper .filtroextendido #filtroprioridad {
