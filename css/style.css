@@ -24,14 +24,13 @@ img {
 body {
     font-family: var(--fuentemenus);
     display: flex;
-    height: 100vh;
     justify-content: center;
     align-items: center;
+    margin: 20px 0px;
 }
 
 .wrapper {
     width: 90vw;
-    max-height: 90vh;
     padding: 15px;
     border-radius: 30px 10px;
     box-shadow: 5px 5px 10px black;
@@ -47,8 +46,9 @@ body {
 
 hr {
     width: 100%;
-    color: var(--colorsecundario);
+    color: whitesmoke;
     margin: 20px 0px;
+    box-shadow: 0px 0px 2px var(--colorsecundario);
 }
 
 .wrapper header h1 {
@@ -58,6 +58,7 @@ hr {
     font-weight: 700;
     color: var(--colorprincipal);
     margin: 20px auto;
+    /* text-shadow: -5px 0px 0 black;  Mejor dejarlo sin sombra o crear el logo en illustrator para que no se mueva la sombra cuando cambia el tamaño*/
 }
 
 .wrapper header h1 span {
@@ -121,13 +122,18 @@ hr {
     background-color: var(--colorprincipal);
     border-radius: 5px;
     border: 5px solid var(--colorprincipal);
-    font-size: 1.8vw;
+    font-size: 2vw;
+}
+
+.wrapper .filtroextendido #filtroprioridad option {
+    color: var(--colorprincipal);
+    background-color: white;
 }
 
 .wrapper .filtroextendido #filtrotexto {
     width: 40%;
     font-family: var(--fuentemenus);
-    font-size: 1.8vw;
+    font-size: 2vw;
     background-color: var(--colorprincipal);
     border-radius: 5px;
     border: 2px solid var(--colorprincipal);
@@ -145,3 +151,48 @@ hr {
 }
 
 /* Final de header */
+
+/* Inicio de main */
+
+main .pendientes, main .completadas {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+main article {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    margin-bottom: 5px;
+    transition: 0.75s;
+}
+
+main article:hover {
+    background-color: whitesmoke;
+}
+
+main article div {
+    min-width: 20px;
+    min-height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--colorsecundario);
+    margin-right: 10px;
+}
+
+main article p {
+    margin-right: 10px;
+}
+
+main .completadas article p {
+    margin-right: 10px;
+    text-decoration: line-through grey;
+}
+
+main article i {
+    margin-left: auto;
+    color: var(--colorprincipal);
+}
+
+/* Final de main */
