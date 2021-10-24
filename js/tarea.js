@@ -8,11 +8,12 @@ export default class Tarea {
     }
 
     mostrarTarea(seccion) {
-        seccion.innerHTML += `<article data-id="${this.id}">
-                                    <div class="${this.prioridad}"></div>
+        let article = document.createElement('article');
+        article.dataset.id = this.id;
+        article.innerHTML = `<div class="${this.prioridad}"></div>
                                     <p>${this.titulo}</p>
-                                    <i class="fas fa-trash"></i>
-                                </article>`
+                                    <i class="fas fa-trash"></i>`;
+        seccion.appendChild(article);
     }
 
     completarTarea() {

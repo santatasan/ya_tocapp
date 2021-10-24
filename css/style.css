@@ -58,7 +58,6 @@ hr {
     font-weight: 700;
     color: var(--colorprincipal);
     margin: 20px auto;
-    /* text-shadow: -5px 0px 0 black;  Mejor dejarlo sin sombra o crear el logo en illustrator para que no se mueva la sombra cuando cambia el tamaño*/
 }
 
 .wrapper header h1 span {
@@ -109,10 +108,8 @@ hr {
 
 .wrapper .filtroextendido {
     width: 100%;
-    transition: 0.75s;
     flex-wrap: wrap;
-    justify-content: space-around ;
-    transition: 0.75s;
+    justify-content: space-around;
 }
 
 .wrapper .filtroextendido #filtroprioridad {
@@ -157,6 +154,21 @@ hr {
 main .pendientes, main .completadas {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+}
+
+main .pendientes .enlaces, main .completadas .enlaces {
+    margin-bottom: 10px;
+}
+
+main .pendientes .enlaces a, main .completadas .enlaces a {
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--colorprincipal);
+}
+
+main .pendientes .enlaces a:hover, main .completadas .enlaces a:hover {
+    text-shadow: 0 0 5px gold;
 }
 
 main article {
@@ -217,3 +229,35 @@ main article i:hover {
 }
 
 /* Final de main */
+
+/* Animaciones */
+
+.flex {
+    animation-name: flex;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes flex {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.flox {
+    animation-name: flox;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes flox {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
