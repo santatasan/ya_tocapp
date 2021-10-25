@@ -7,15 +7,14 @@ let tareas = new ListaTareas();
 
 let tarea1 = new Tarea(1, 'Estudiar javascript', 'urgente', true);
 let tarea2 = new Tarea(2, 'Pasear al perro', 'diaria', true);
-let tarea3 = new Tarea(3, 'Darse una ducha', 'mensual', true);
+let tarea3 = new Tarea(3, 'Darse una ducha', 'mensual');
 
 tareas.agregarTarea(tarea1);
 tareas.agregarTarea(tarea2);
 tareas.agregarTarea(tarea3);
 
 //Capturamos los elementos que nos van a hacer falta y que existen desde el principio
-const seccionPendientes = document.querySelector('.pendientes');
-const seccionCompletadas = document.querySelector('.completadas');
+
 const nuevaTarea = document.querySelector('.nuevo');
 const filtros = document.querySelector('.filtros');
 const filtroExtendido = document.querySelector('.filtroextendido');
@@ -39,26 +38,8 @@ function mostrarFiltros() {
 filtroTexto.value = '';
 filtroPrioridad.value = '';
 
-//Al clicar en mostrar una u otra sección, se muestra la sección elegida y la otra se oculta
-function cambiarSeccion(event) {
-    event.preventDefault();
-    if (event.target.dataset.id === 'seccion2') {
-        seccionPendientes.style.display = 'none';
-        seccionCompletadas.style.display = 'flex';
-    } else {
-        seccionPendientes.style.display = 'flex';
-        seccionCompletadas.style.display = 'none';
-    }
-}
-
 //Pintamos las tareas
-tareas.pintarTareas(seccionPendientes, seccionCompletadas);
-let enlacesSecciones = document.querySelectorAll('.enlaces>a');
-enlacesSecciones.forEach(enlace => enlace.addEventListener('click', cambiarSeccion));
-
-//Borrar tareas
-let papelera = document.querySelectorAll(`article i`);
-papelera.forEach(elemento => elemento.addEventListener('click', borrarTareas));
+tareas.pintarTareas();
 
 function borrarTareas(event) {
     tareas.borrarTarea(event.target.parentNode);
@@ -66,23 +47,11 @@ function borrarTareas(event) {
 }
 
 //Filtro semántico
-filtroTexto.addEventListener('input', (event) => {
-    let listaFiltrada = new ListaTareas();
-    tareas.buscarTexto(event.target.value).forEach(tarea => listaFiltrada.agregarTarea(tarea));
-    listaFiltrada.pintarTareas(seccionPendientes, seccionCompletadas);
-    papelera = document.querySelectorAll(`article i`);
-    papelera.forEach(elemento => elemento.addEventListener('click', borrarTareas));
-    enlacesSecciones = document.querySelectorAll('.enlaces>a');
-    enlacesSecciones.forEach(enlace => enlace.addEventListener('click', cambiarSeccion));
-})
+filtroTexto.addEventListener('input', (event) => { tareas.filtrar(event.target.value, 'titulo'); filtroPrioridad.value = ''; });
+//papelera = document.querySelectorAll(`article i`);
+//papelera.forEach(elemento => elemento.addEventListener('click', borrarTareas));
 
 //Filtro por prioridad
-filtroPrioridad.addEventListener('change', (event) => {
-    let listaFiltrada = new ListaTareas();
-    tareas.buscarPrioridad(event.target.value).forEach(tarea => listaFiltrada.agregarTarea(tarea));
-    listaFiltrada.pintarTareas(seccionPendientes, seccionCompletadas);
-    papelera = document.querySelectorAll(`article i`);
-    papelera.forEach(elemento => elemento.addEventListener('click', borrarTareas));
-    enlacesSecciones = document.querySelectorAll('.enlaces>a');
-    enlacesSecciones.forEach(enlace => enlace.addEventListener('click', cambiarSeccion));
-})
+filtroPrioridad.addEventListener('change', (event) => { tareas.filtrar(event.target.value, 'prioridad'); filtroTexto.value = ''; });
+//papelera = document.querySelectorAll(`article i`);
+//papelera.forEach(elemento => elemento.addEventListener('click', borrarTareas));

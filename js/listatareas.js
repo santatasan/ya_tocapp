@@ -8,42 +8,55 @@ export default class ListaTareas {
         this.lista.push(lista);
     }
 
-    pintarTareas(seccion1, seccion2) {
+    pintarTareas() {
         let contadorCompletas = 0;
         let contadorPendientes = 0;
-        seccion1.innerHTML = '';
-        seccion2.innerHTML = '';
-        seccion1.innerHTML += '<div class="enlaces"><a href="" data-id="seccion2">Mostrar completadas</a></div>';
-        seccion2.innerHTML += '<div class="enlaces"><a href="" data-id="seccion1">Mostrar pendientes</a></div>';
+        const seccionPendientes = document.querySelector('.pendientes');
+        const seccionCompletadas = document.querySelector('.completadas');
+        seccionPendientes.innerHTML = '';
+        seccionCompletadas.innerHTML = '';
+        let divEnlace1 = document.createElement('div');
+        let divEnlace2 = document.createElement('div');
+        let enlace1 = document.createElement('a');
+        let enlace2 = document.createElement('a');
+
+        enlace1.dataset.id = 'seccion2';
+        enlace1.innerText = 'Mostrar completadas';
+        enlace2.dataset.id = 'seccion1';
+        enlace2.innerText = 'Mostrar pendientes';
+        divEnlace1.classList.add('enlaces');
+        divEnlace2.classList.add('enlaces');
+
+        divEnlace1.appendChild(enlace1);
+        divEnlace2.appendChild(enlace2);
+        seccionPendientes.appendChild(divEnlace1);
+        seccionCompletadas.appendChild(divEnlace2);
+
+        seccionCompletadas.style.display = 'none';
+        seccionPendientes.style.display = 'flex';
+
+        enlace1.addEventListener('click', () => {
+            seccionPendientes.style.display = 'none';
+            seccionCompletadas.style.display = 'flex';
+        });
+        enlace2.addEventListener('click', () => {
+            seccionPendientes.style.display = 'flex';
+            seccionCompletadas.style.display = 'none';
+        });
 
         this.lista.forEach(tarea => {
             if (tarea.completa) {
                 contadorCompletas += 1;
-                tarea.mostrarTarea(seccion2);
+                tarea.mostrarTarea(seccionCompletadas);
             } else {
                 contadorPendientes += 1;
-                tarea.mostrarTarea(seccion1);
+                tarea.mostrarTarea(seccionPendientes);
             }
         });
-
-        seccion2.style.display = 'none';
-        seccion1.style.display = 'flex';
-
-        if (contadorPendientes === 0) {
-            seccion1.innerHTML += '<figure>i</figure>'
-
-
-        }
-        if (contadorCompletas === 0) {
-            seccion2.style.display = 'none';
-            seccion1.style.display = 'flex';
-
-        }
     }
 
     borrarTarea(articulo) {
         let posicion = this.lista.findIndex(tarea => tarea.id === parseInt(articulo.dataset.id));
-
         if (posicion !== -1) {
             this.lista.splice(posicion, 1);
             (articulo).parentNode.removeChild(articulo);
@@ -52,14 +65,13 @@ export default class ListaTareas {
         }
     }
 
-    buscarTexto(valor) {
-        let listaFiltrada = this.lista.filter(tarea => tarea.titulo.toLowerCase().includes(valor.toLowerCase()));
-        return listaFiltrada;
+    filtrar(valor, tipo) {
+        let listaFiltrada = new ListaTareas();
+        if (tipo === 'prioridad') {
+            this.lista.filter(tarea => tarea.prioridad.toLowerCase().includes(valor.toLowerCase())).forEach(element => listaFiltrada.agregarTarea(element));
+        } else {
+            this.lista.filter(tarea => tarea.titulo.toLowerCase().includes(valor.toLowerCase())).forEach(element => listaFiltrada.agregarTarea(element));
+        }
+        listaFiltrada.pintarTareas();
     }
-
-    buscarPrioridad(valor) {
-        let listaFiltrada = this.lista.filter(tarea => tarea.prioridad.toLowerCase().includes(valor.toLowerCase()));
-        return listaFiltrada;
-    }
-
 }
