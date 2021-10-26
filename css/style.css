@@ -1,5 +1,5 @@
 @import url(reset.css);
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Gluten:wght@400;700&family=MuseoModerno&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gluten:wght@400;700&family=MuseoModerno&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css');
 
 *{
@@ -7,18 +7,18 @@
 }
 
 img {
-    width: 100%;
+    width: 80%;
     height: auto;
+    margin: 10px auto;
     display: block;
 }
 
 :root {
     --fuenteh1: 'Gluten', cursive;
     --fuentemenus: 'MuseoModerno', cursive;
-    --fuentetareas: 'Dancing Script', cursive;
     --colorprincipal: #0c16a3;
     --segundocolorprincipal: #090f63;
-    --colorsecundario: rgb(206, 200, 200);
+    --colorsecundario: rgb(182, 178, 178);
 }
 
 body {
@@ -54,17 +54,131 @@ hr {
 .wrapper header h1 {
     width: 100%;
     font-family: var(--fuenteh1);
-    font-size: 10vw;
+    font-size: 3.5em;
     font-weight: 700;
     color: var(--colorprincipal);
     margin: 20px auto;
-    /* text-shadow: -5px 0px 0 black;  Mejor dejarlo sin sombra o crear el logo en illustrator para que no se mueva la sombra cuando cambia el tamaño*/
 }
 
 .wrapper header h1 span {
     font-style: italic;
     font-weight: 400;
     color: var(--segundocolorprincipal);
+}
+
+.wrapper header .nuevatarea {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.wrapper header .nuevatarea .manto form {
+    width: 60vw;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 30px 10px;
+    position: relative;
+    padding: 20px;
+}
+
+.wrapper header .nuevatarea .manto form div {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.wrapper header .nuevatarea .manto form #titulo {
+    width: 100%;
+    font-family: var(--fuentemenus);
+    background-color: var(--colorprincipal);
+    border-radius: 10px 30px;
+    border: 2px solid var(--colorprincipal);
+    color: white;
+    transition: 0.75s;
+    padding: 5px;
+    text-align: center;
+}
+
+.wrapper header .nuevatarea .manto form #titulo:focus {
+    background-color: white;
+    border: 2px solid var(--colorprincipal);
+    padding: 5px;
+    color: var(--colorprincipal);
+    outline: none;
+}
+
+.wrapper header .nuevatarea .manto form #selectprioridad {
+    width: 100%;
+    font-family: var(--fuentemenus);
+    color: white;
+    background-color: var(--colorprincipal);
+    border-radius: 10px 30px;
+    border: 2px solid var(--colorprincipal);
+    padding: 5px;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.wrapper header .nuevatarea .manto form #selectprioridad option {
+    color: var(--colorprincipal);
+    background-color: white;
+    font-weight: bold;
+}
+
+.wrapper header .nuevatarea .manto form #btn {
+    padding: 5px;
+    text-align: center;
+    background-color: white;
+    color: var(--colorprincipal);
+    border: 2px solid white;
+    position: absolute;
+    bottom: -15px;
+    left: -20px;
+    border-radius: 30px 30px;
+    cursor: pointer;
+
+}
+
+.wrapper header .nuevatarea .manto form #btn:hover {
+    background-color: var(--colorprincipal);
+    color: white;
+}
+
+.error1 {
+    padding: 5px 0;
+    text-shadow: 0 0 3px red;
+    color: red;
+}
+
+.error2 {
+    padding: 5px 0;
+    text-shadow: 0 0 3px red;
+    color: red;
+}
+
+.correcto {
+    padding: 5px 0;
+    text-shadow: 0 0 3px green;
+    color: green;
+}
+
+.wrapper header .nuevatarea .manto form #btnCancel {
+    padding: 5px;
+    text-align: center;
+    background-color: white;
+    color: red;
+    border: 2px solid white;
+    position: absolute;
+    bottom: -15px;
+    right: -20px;
+    border-radius: 30px 30px;
+    cursor: pointer;
+}
+
+.wrapper header .nuevatarea .manto form #btnCancel:hover {
+    background-color: red;
+    color: white;
 }
 
 .wrapper header aside {
@@ -78,7 +192,7 @@ hr {
     margin-right: 10px;
     color: var(--colorprincipal);
     background-color: white;
-    font-size: 3vw;
+    font-size: 1.1em;
     cursor: pointer;
     padding: 5px;
     transition: 0.75s;
@@ -89,7 +203,7 @@ hr {
     margin-left: 10px;
     color: var(--colorprincipal);
     background-color: white;
-    font-size: 3vw;
+    font-size: 1.1em;
     cursor: pointer;
     padding: 5px;
     transition: 0.75s;
@@ -109,20 +223,18 @@ hr {
 
 .wrapper .filtroextendido {
     width: 100%;
-    transition: 0.75s;
-    display: flex;
     flex-wrap: wrap;
-    justify-content: space-around ;
+    justify-content: space-around;
 }
 
 .wrapper .filtroextendido #filtroprioridad {
-    width: 40%;
+    width: 45%;
     font-family: var(--fuentemenus);
     color: white;
     background-color: var(--colorprincipal);
     border-radius: 5px;
     border: 5px solid var(--colorprincipal);
-    font-size: 2vw;
+    font-size: 0.9em;
 }
 
 .wrapper .filtroextendido #filtroprioridad option {
@@ -131,21 +243,21 @@ hr {
 }
 
 .wrapper .filtroextendido #filtrotexto {
-    width: 40%;
+    width: 45%;
     font-family: var(--fuentemenus);
-    font-size: 2vw;
+    font-size: 0.9em;
     background-color: var(--colorprincipal);
     border-radius: 5px;
     border: 2px solid var(--colorprincipal);
     color: white;
     transition: 0.75s;
-    padding: 5px;
+    padding: 3px;
 }
 
 .wrapper .filtroextendido #filtrotexto:focus {
     background-color: white;
     border: 2px solid var(--colorprincipal);
-    padding: 5px;
+    padding: 3px;
     color: var(--colorprincipal);
     outline: none;
 }
@@ -159,6 +271,37 @@ main .pendientes, main .completadas {
     flex-wrap: wrap;
 }
 
+main .pendientes .enlaces, main .completadas .enlaces {
+    text-align: center;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+main .pendientes .enlaces a, main .completadas .enlaces a {
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--colorprincipal);
+}
+
+main .pendientes .enlaces a:hover, main .completadas .enlaces a:hover {
+    text-shadow: 0 0 5px gold;
+}
+
+main .pendientes .notareas, main .completadas .notareas {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    margin: 0 auto;
+}
+
+main .pendientes .notareas p, main .completadas .notareas p {
+    margin: 10px 0;
+    color: var(--colorsecundario);
+    font-size: 0.8em;
+}
+
 main article {
     width: 100%;
     padding: 10px;
@@ -170,7 +313,7 @@ main article {
 }
 
 main article:hover {
-    background-color: whitesmoke;
+    background-color: var(--colorsecundario);
 }
 
 main article div {
@@ -179,27 +322,61 @@ main article div {
     border-radius: 50%;
     border: 2px solid var(--colorsecundario);
     margin-right: 10px;
+    cursor: pointer;
+    background-image: url('../img/pngwing.com.png');
+    background-size: cover;
+}
+
+.slide {
+    -webkit-transition: all 0.3s ease-out 0s;
+    -moz-transition: all 0.3s ease-out 0s;
+    -o-transition: all 0.3s ease-out 0s;
+    transition: all 0.3s ease-out 0s;
+    transition: all 0.3s ease-out 0s;
+    background-position: 100% 0;
+}
+
+main article:hover .slide {
+    background-position: 5%;
+}
+
+.unslide {
+    -webkit-transition: all 0.3s ease-out 0s;
+    -moz-transition: all 0.3s ease-out 0s;
+    -o-transition: all 0.3s ease-out 0s;
+    transition: all 0.3s ease-out 0s;
+    transition: all 0.3s ease-out 0s;
+    background-position: 5%;
+}
+
+main article:hover .unslide {
+    background-position: 100% 0;
 }
 
 main article p {
     margin-right: 10px;
     cursor: default;
+    font-size: 0.8em;
 }
 
 main .completadas article p {
     margin-right: 10px;
-    text-decoration: line-through grey;
+    text-decoration: line-through var(--colorsecundario);
 }
 
 main article i {
     margin-left: auto;
-    font-size: 1.2em;
+    font-size: 1em;
     color: var(--colorprincipal);
     cursor: pointer;
     transition: 1s;
 }
 
 main article i:hover {
+    -webkit-transform:rotate(360deg);
+    -moz-transform:rotate(360deg);
+    -o-transform:rotate(360deg);
+    -ms-transform:rotate(360deg);
     transform: rotate(360deg);
     color: red;
 }
@@ -217,3 +394,211 @@ main article i:hover {
 }
 
 /* Final de main */
+
+/* Animaciones */
+
+.flex {
+    animation-name: flex;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes flex {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.flox {
+    animation-name: flox;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes flox {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.wrapper header .nuevatarea .manto {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    animation-name: mantoOpacity;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes mantoOpacity {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.wrapper header .nuevatarea .manto form.abrir {
+    animation-name: formAnimation;
+    animation-duration: 0.75s;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes formAnimation {
+    0%{
+        opacity: 0;
+        top: 0%;
+        transform: scale(0.5);
+    }
+    100%{
+        opacity: 1;
+        top: 30%;
+        transform: scale(1.30);
+    }
+}
+
+.wrapper header .nuevatarea .manto form.cerrar {
+    width: 60vw;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 30px 10px;
+    position: relative;
+    padding: 20px;
+    animation-name: formAnimationClose;
+    animation-duration: 0.75s;
+    animation-fill-mode: forwards;
+    opacity: 1;
+}
+
+@keyframes formAnimationClose {
+    0%{
+        opacity: 1;
+        top: 30%;
+        transform: scale(1.30);
+    }
+    100%{
+        opacity: 0;
+        top: 0%;
+        transform: scale(0.5);
+    }
+}
+
+/* Media querys */
+
+@media(min-width: 768px) {
+
+    .wrapper {
+        width: 75vw;
+    }
+
+    .wrapper header h1 {
+        font-size: 4.5em;
+    }
+
+    .wrapper header .nuevatarea .manto form #btn {
+        left: 30%;
+    }
+
+    .wrapper header .nuevatarea .manto form #btnCancel {
+        right: 30%;
+    }
+
+    .wrapper .nuevo {
+        font-size: 1.3em;
+    }
+
+    .wrapper .filtros { 
+        font-size: 1.3em;
+    }
+
+    .wrapper .filtroextendido #filtroprioridad {
+        font-size: 1em;
+    }
+
+    .wrapper .filtroextendido #filtrotexto {
+        font-size: 1em;
+    }
+
+    main .pendientes .enlaces a, main .completadas .enlaces a {
+        font-size: 1.2em;
+    }
+
+     main .pendientes .notareas p, main .completadas .notareas p {
+        font-size: 1em;
+    }
+
+    main article div {
+        min-width: 25px;
+        min-height: 25px;
+    }
+
+    main article p {
+        font-size: 1em;
+    }
+
+    main article i {
+        font-size: 1.2em;
+    }
+}
+
+@media(min-width: 1004px) {
+
+    .wrapper {
+        width: 60vw;
+    }
+
+    .wrapper header .nuevatarea .manto form #titulo {
+        width: 70%;
+    }
+
+    .wrapper header .nuevatarea .manto form #selectprioridad {
+        width: 30%;
+        margin-top: 0;
+    }
+
+    .wrapper .nuevo {
+        font-size: 1.6em;
+    }
+
+    .wrapper .filtros { 
+        font-size: 1.6em;
+    }
+
+    .wrapper .filtroextendido #filtroprioridad {
+        font-size: 1.2em;
+    }
+
+    .wrapper .filtroextendido #filtrotexto {
+        font-size: 1.2em;
+    }
+
+    main .pendientes .enlaces a, main .completadas .enlaces a {
+        font-size: 1.4em;
+    }
+
+    main .pendientes .notareas p, main .completadas .notareas p {
+        font-size: 1.2em;
+    }
+
+    main article div {
+        min-width: 30px;
+        min-height: 30px;
+    }
+
+    main article p {
+        font-size: 1.1em;
+    }
+
+    main article i {
+        font-size: 1.4em;
+    }
+}

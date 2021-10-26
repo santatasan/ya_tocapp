@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YaTocApp</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/main.js" type="module"></script>
 </head>
 
 <body>
@@ -15,6 +14,26 @@
 
         <header>
             <h1>YaTocA<span>pp</span></h1>
+            <div class="nuevatarea">
+                <div class="manto">
+                    <form class="cerrar" action="">
+                        <div>
+                            <input type="text" id="titulo" placeholder="Introduce una tarea">
+                            <select id="selectprioridad">
+                                <option value="">Seleccionar prioridad</option>
+                                <option value="diaria">Diaria</option>
+                                <option value="mensual">Mensual</option>
+                                <option value="urgente">Urgente</option>
+                            </select>
+                        </div>
+                        <input type="submit" value="Crear tarea" id="btn">
+                        <p class="error1" style="display: none">Todos los campos son obligatorios</p>
+                        <p class="error2" style="display: none">La tarea ya está creada</p>
+                        <p class="correcto" style="display: none">La tarea se guardó correctamente</p>
+                        <div id="btnCancel">Cancelar</div>
+                    </form>
+                </div>
+            </div>
             <aside>
                 <div class="nuevo">
                     <i class="fas fa-plus-circle"></i>
@@ -26,34 +45,30 @@
                 </div>
                 <hr noshade="noshade">
             </aside>
-            <div class="filtroextendido">
-
+            <div class="filtroextendido flox" style="display: none; opacity: 0">
                 <select id="filtroprioridad">
                     <option value="">Filtrar por prioridad</option>
                     <option value="diaria">Diaria</option>
                     <option value="mensual">Mensual</option>
                     <option value="urgente">Urgente</option>
                 </select>
-                <input type="text" placeholder="Título de la tarea a buscar" id="filtrotexto">
+                <input type="text" value="" placeholder="Tarea a buscar" id="filtrotexto">
                 <hr noshade="noshade">
             </div>
         </header>
 
-
-
         <main>
 
             <section class="pendientes">
-
             </section>
 
             <section class="completadas">
-
             </section>
 
         </main>
 
     </div>
+    <script src="js/main.js" type="module"></script>
 </body>
 
 </html>
