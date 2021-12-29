@@ -127,6 +127,7 @@ hr {
 }
 
 .wrapper header .nuevatarea .manto form #btn {
+    font-family: var(--fuentemenus);
     padding: 5px;
     text-align: center;
     background-color: white;
